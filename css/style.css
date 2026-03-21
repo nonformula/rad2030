@@ -89,32 +89,81 @@ em { font-style: normal; }
   display: block;
 }
 
-.nav-brand {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-light);
+.nav-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: #777;
+  margin-left: 18px;
 }
 
-.nav-links {
+/* ── NAV LOGO GROUP (positions dropdown relative to logo) ────────── */
+.nav-logo-group {
+  position: relative;
+  align-self: stretch;
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2.5vw, 40px);
 }
 
-.nav-links a {
+/* ── NAV DROPDOWN ───────────────────────────────────────────────── */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  width: fit-content;
+  min-width: 280px;
+  background: var(--bg-dark);
+  border: 1px solid #1a1a1a;
+  border-top: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 99;
+}
+
+#nav:hover .nav-dropdown {
+  max-height: 480px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-dropdown-list {
+  padding: 12px 48px 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dropdown-list li {
+  border-bottom: 1px solid #161616;
+}
+
+.nav-dropdown-list li:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-list a {
+  display: block;
+  padding: 13px 0;
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
-.nav-links a:hover { color: var(--text-light); }
+.nav-dropdown-list a:hover { color: var(--text-light); }
 
 /* ── SECTIONS ───────────────────────────────────────────────────── */
 .section { position: relative; }
@@ -681,8 +730,6 @@ video.parallax-img {
 
 /* ── RESPONSIVE ─────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .nav-links { display: none; }
-
   .split-layout {
     grid-template-columns: 1fr;
     min-height: auto;
