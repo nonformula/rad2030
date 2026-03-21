@@ -9,10 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -147,7 +143,9 @@
   <!-- ─── AI STRATEGY ───────────────────────────────────────────── -->
   <section id="ai-strategy" class="section section--dark">
     <div class="parallax-wrap parallax-wrap--band">
-      <img src="assets/mov/cells.mov" alt="" class="parallax-img">
+      <video autoplay muted loop playsinline class="parallax-img">
+        <source src="assets/mov/cells.mov" type="video/mp4">
+      </video>
       <div class="overlay overlay--light"></div>
     </div>
     <div class="container">
@@ -270,6 +268,9 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
