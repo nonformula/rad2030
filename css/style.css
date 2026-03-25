@@ -237,7 +237,7 @@ em { font-style: normal; }
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: clamp(24px, 2.8vw, 38px);
-  line-height: 1.4;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-light);
   margin-bottom: var(--heading-mb);
@@ -331,6 +331,7 @@ em { font-style: normal; }
 
 .callout--red   { border-left-color: var(--red); }
 .callout--green { border-left-color: var(--red); }
+.callout--green p { font-size: clamp(24px, 2.8vw, 38px); line-height: 1.1; font-weight: 400; }
 .callout--amber { border-left-color: var(--red); }
 
 /* ── SHIFT TABLE ────────────────────────────────────────────────── */
