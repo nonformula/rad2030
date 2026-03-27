@@ -329,10 +329,7 @@ em { font-style: normal; }
   color: #ccc;
 }
 
-.callout--red   { border-left-color: var(--red); }
-.callout--green { border-left-color: var(--red); }
 .callout--green p { font-size: clamp(24px, 2.8vw, 38px); line-height: 1.1; font-weight: 400; }
-.callout--amber { border-left-color: var(--red); }
 
 /* ── SHIFT TABLE ────────────────────────────────────────────────── */
 .shift-table {

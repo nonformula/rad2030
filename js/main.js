@@ -24,7 +24,26 @@
   lenis.on('scroll', ScrollTrigger.update);
 
 
-  // ── 2. NAV SMOOTH SCROLL ──────────────────────────────────────
+  // ── 2. VIDEO AUTOPLAY FALLBACK ────────────────────────────────
+  // .mov files are unsupported on Android — catch load/play failures
+  // and hide the broken native play button, revealing the poster frame.
+  document.querySelectorAll('video[autoplay]').forEach(video => {
+    // Source error fires when the browser can't load/decode the file
+    const sources = video.querySelectorAll('source');
+    if (sources.length) {
+      sources[sources.length - 1].addEventListener('error', () => {
+        video.style.display = 'none';
+      });
+    }
+    // play() promise rejects when autoplay policy blocks it
+    const p = video.play();
+    if (p !== undefined) {
+      p.catch(() => { video.style.display = 'none'; });
+    }
+  });
+
+
+  // ── 3. NAV SMOOTH SCROLL ──────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       e.preventDefault();
